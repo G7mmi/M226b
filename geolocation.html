@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+  <title>Website</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <link rel="stylesheet" href="css/slimbox2.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/slimbox2.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome</h1>
+
+
+
+</header>
+</div>
+<div class="container">
+  <h3>Geolocation</h3>
+  <button type="button" name="button" id="btn_locateMe">Wo bin ich</button>
+  <div>
+    <span id="td_lat">latitude: </span>
+  </div>
+  <div>
+    <span id="td_long">longitude: </span>
+  </div>
+  <div>
+  <span id="td_alti">altitude: </span>
+  </div>
+</div>
+<div class="container" id="map"></div>
+
+
+
+
+    <footer class="footer fixed-bottom bg-light text-center">
+
+  </footer>
+  <script src ="js/lampesteuerung.js"></script>
+  <script src ="js/togglefun.js"></script>
+  <script src ="js/clickcounter.js"></script>
+  <script src="js/sliderfun.js"></script>
+  <script src="js/addtile.js"></script>
+  <!--script src="js/keyevent.js"></script>
+  <script src="js/keyeventtwo.js"></script>
+  <script src="js/key_list.js"></script-->
+  <script src="js/calc.js"></script>
+
+  <script>
+  $('#btn_locateMe').on('click', function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      $('#error_msg').text("Not supported by browser.");
+  }
+});
+
+  function showPosition(position) {
+      lati = position.coords.latitude;
+      longi = position.coords.longitude;
+      $('#td_lat').append(lati);
+      $('#td_long').append(longi);
+      $('#td_alti').append(position.coords.altitude);
+      var mapOptions = {  center: [lati, longi],  zoom: 18}
+      // Creating a map object
+      var map = new L.map('map', mapOptions);
+      // Creating a map layer object
+      var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+      // Adding layer to the map
+      map.addLayer(layer);
+      L.marker([lati, longi]).addTo(map)
+      .bindPopup("No McDonalds around the corner").openPopup();
+
+      var points = []
+      var myline = L.polyline(points, {
+        color: "red"
+      }).addTo(map)
+
+      map.on('click', function(pos){
+        myline.addLatLng(pos.latlng)
+      })
+    }
+  </script>
+</body>
+</html>

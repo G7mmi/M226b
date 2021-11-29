@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>Website</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/slimbox2.css">
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/slimbox2.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>Welcome</h1>
+
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tips.html">Tipps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="goals.html">Goals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grid.html">Grid</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="carousel.html">Carousel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jumbotron.html">Jumbotroll</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+<div class="container" id="registration-form">
+
+  <form action=""  id="anmeldung">
+    <h2>Anmeldung</h2>
+    <div>
+    <label>Vorname</label>
+  </div>
+  <div>
+      <input type="text" name="fistname" placeholder="Max" id="firstname" required>
+  </div>
+  <div>
+    <label>Nachname</label>
+  </div>
+  <div>
+      <input type="text" name="familyname" placeholder="Muserman" >
+  </div>
+  <div>
+    <label>Email-Adresse</label>
+  </div>
+  <div>
+      <input type="email" name="birthday" placeholder="max@muster.com" id="email" >
+  </div>
+  <div>
+    <label>Passwort</label>
+  </div>
+  <div>
+      <input type="password" name="pwd1" value="" id="pwd1" >
+  </div>
+  <div>
+    <label>Passwort wiederholen</label>
+  </div>
+  <div>
+      <input type="password" name="pwd2" value="" id="pwd2">
+  </div>
+  <div id="errorlog">
+
+  </div>
+
+  <div>
+  <button type="submit" class="btn btn-success" id="submit-btn">Senden</button>
+  <button type="reset" class="btn btn-danger">Löschen</button>
+  </div>
+
+  </form>
+
+</div>
+
+<script src="js/anmeldeform.js"></script>
+
+  </body>
+</html>

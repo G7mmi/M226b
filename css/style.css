@@ -1,0 +1,102 @@
+/*h1 {
+   font-family: '8BITWONDERNominal';
+   font-weight: normal;
+   font-style: normal;
+}
+
+
+.three-cols {
+  column-count: 3;
+  column-gap: 30px;
+  text-align: justify;
+}
+
+.three-cols h1 {
+  font-family: 'Cinzel', serif;
+  font-variant: small-caps;
+}
+
+
+/*.minecraft h1 {
+  font-family: 'MinecrafterAltRegular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 150px;
+}
+
+.footer {
+  font-size: 0.5em;
+  color: red;
+  background-color: blue;
+}
+
+.jumbotron {
+ color: #FFF;
+}
+
+.click{
+  border: 2px solid red;
+  border-radius: 5px;
+  font-size: 2em;
+}
+
+
+.galerie img{
+  width: 100%;
+  filter: sepia(100%);
+}
+
+.galerie img:hover{
+  width: 100%;
+  filter: none;
+}
+
+@keyframes wackeldackel {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-10px);}
+}
+.wackel:hover{
+  animation: wackeldackel 0.1s linear;
+  animation-iteration-count: 2;
+}
+*/
+
+.error {
+  border: 3px solid red;
+}
+
+/**Hintergrundvideo css Regeln*/
+#bg_video{
+  position: fixed;
+  top:50%; left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto; height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -100; /* Reihenfolge der Web-ELemente -100 ist sehr weit unten */
+  overflow: hidden;
+  background: #333;
+}
+
+.my-videos {
+  display: block;
+  margin: 0 auto;
+  max-width:92%; /* maximale Breite des Video, responsive */
+  width: 600px;
+  height: 400px;
+}
+
+
+
+h2 {
+  color: white;
+}
+
+
+#errorlog {
+  color: red;
+}
+
+#map {
+  height: 380px;
+ }

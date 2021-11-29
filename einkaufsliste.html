@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Einkaufsliste</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slimbox2.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/slimbox2.js"></script>
+
+</head>
+  <body>
+    <section>
+      <div class="container">
+        <h1>Einkaufen:</h1>
+        <form class="einkauf" action="einkaufsliste.html" method="post">
+          <div class="row">
+            <div class="col-sm-2">
+              <p>Was willsch choufe</p>
+            </div>
+            <div class="col-sm-2">
+              <input type="text" name="gegenstand" value="" id="gegenstand">
+            </div>
+            <div class="col-sm-1">
+              <p>Wie viel</p>
+            </div>
+            <div class="col-sm-2">
+              <input  type="number" name="anzahl" value="0" id="anzahl" >
+
+            </div>
+            <div class="col-sm-3">
+              <input type="button" name="einfügen" value="einfügen" id="einkaufbtn">
+            </div>
+            <div class="col-sm-2">
+              <span id="done"></span>
+            </div>
+          </div>
+
+        </form>
+        <div class="container">
+          <h1>Einkaufsliste</h1>
+          <div>
+            <p id="liste"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/einkauf.js"></script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>Website</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/slimbox2.css">
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/slimbox2.js"></script>
+      <script src="js/jquery.validate.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>Welcome</h1>
+
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tips.html">Tipps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="goals.html">Goals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grid.html">Grid</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="carousel.html">Carousel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jumbotron.html">Jumbotroll</a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+<div class="container" id="registration-form">
+
+  <form method="get"  id="commentForm">
+    <h2>Anmeldung</h2>
+    <div>
+    <label>Vorname</label>
+  </div>
+  <div>
+      <input type="text" name="firstname" placeholder="Max" id="firstname" >
+  </div>
+  <div>
+    <label>Nachname</label>
+  </div>
+  <div>
+      <input type="text" name="familyname" placeholder="Musterman" id="familyname">
+  </div>
+  <div>
+    <label>Email-Adresse</label>
+  </div>
+  <div>
+      <input type="email" name="birthday" placeholder="max@muster.com" id="email" >
+  </div>
+  <div>
+    <label>Postleitzahl</label>
+  </div>
+  <div>
+    <input type="number" name="plz" id="plz">
+  </div>
+  <div>
+    <label>Passwort</label>
+  </div>
+  <div>
+      <input type="password" name="pwd1" value="" id="pwd1" >
+  </div>
+  <div>
+    <label>Passwort wiederholen</label>
+  </div>
+  <div>
+      <input type="password" name="pwd2" value="" id="pwd2">
+  </div>
+
+  <div id="errorlog">
+
+  </div>
+
+  <div>
+  <button type="submit" class="btn btn-success" id="submit-btn">Senden</button>
+  <button type="reset" class="btn btn-danger">Löschen</button>
+  </div>
+
+  </form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+  $.validator.addMethod("checkPLZ",
+    function (value, element) {
+      return this.optional(element) ||
+        /^([1-9][0-9]{3}$)/.test(value)
+    },
+    "Ungültige PLZ"
+  )
+
+  /**
+  teste, dass passwort min 5 Zeichen lang ist und gross,
+  kleinbuchstaben + ziffern enthält
+  */
+
+  $.validator.addMethod("checkPW",
+    function (value, element) {
+      return this.optional(element) ||
+      /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])).{5,40}/.test(value)
+    },
+    "Passwort muss mindestens eine Ziffer, einen Gross- und einen kleinbuchstaben enthalten"
+  )
+
+  $("#commentForm").validate({
+    rules: {
+      firstname: {
+        required: true,
+        minlength: 2
+      },
+      familyname: {
+        required: true,
+        minlength: 2
+    },
+      email: {
+        required: true,
+        email: true
+    },
+      plz: {
+        required: true,
+        checkPLZ: true
+    },
+      pwd1: {
+        required: true,
+        minlength: 4,
+        checkPW: true
+    },
+      pwd2: {
+        required: true,
+        equalTo: "#pwd1"
+    },
+  },
+    messages: {
+      firstname: {
+        required: "Bitte Vorname eingeben",
+        minlength: "Mindestens 2 Zeichen eingeben"
+      },
+      familyname: {
+        required: "Bitte Vorname eingeben",
+        minlength: "Mindestens 2 Zeichen eingeben"
+      },
+      email: {
+        required: "Bitte Email eingeben",
+        email: "Bitte gültige Email eingeben"
+      },
+      plz: {
+        required: "Bitte Postleitzahl eingeben",
+        checkPLZ: "Bitte gültige PLZ eingeben"
+      },
+      pwd1: {
+        required: "Bitte Passwort eingeben",
+        minlength: "Mindestens 4 Zeichen eingeben"
+      },
+      pwd2: {
+        required: "Bitte Passwort eingeben",
+        equalTo: "Passwörter müssen gleich sein"
+      }
+    }
+  })
+})
+</script>
+  </body>
+</html>
